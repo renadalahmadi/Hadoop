@@ -17,9 +17,9 @@ class MedicalDevices(MRJob):
        for row in reader:
            zipped=zip(columns,row)
            diction=dict(zipped)
-           distc = diction['Manufacture_CountryEn']
+           Device = diction['Manufacture_CountryEn']
            #outputing as key value pairs
-           yield distc, 1
+           yield Device, 1
            
 #Reducer function
  def reducer_count_ratings(self, key, values):
