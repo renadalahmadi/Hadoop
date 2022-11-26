@@ -10,13 +10,12 @@ class MedicalDevices(MRJob):
             reducer=self.reducer_count_countries)
     ]
 
-def mapper_device_countries(self, _, line):
-   (tradeName, genericName, IssueDate, ExpiryDate, Manufacture_CountryEn,IsLocalManufacturer
-   ,Jurisdiction_en, deviceType_en ,Classification_en,accessories) = line.split(',')
-    yield Manufacture_CountryEn, 1
+    def mapper_device_countries(self, _, line):
+         (tradeName, genericName, IssueDate, ExpiryDate, Manufacture_CountryEn,IsLocalManufacturer,Jurisdiction_en, deviceType_en ,Classification_en,accessories) = line.split(',')
+        yield Manufacture_CountryEn, 1
 
-def reducer_count_countries(self, key, values):
-    yield key, sum(values)
+    def reducer_count_countries(self, key, values):
+        yield key, sum(values)
     
     
 if __name__ == '__main__':
