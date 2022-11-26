@@ -7,7 +7,7 @@ class MedicalDevices(MRJob):
     def steps(self):
         return [
             MRStep(mapper=self.mapper_device_countries,
-            reducer=self.reducer_count_ratings)
+            reducer=self.reducer_count_countries)
     ]
 
 def mapper_device_countries(self, _, line):
